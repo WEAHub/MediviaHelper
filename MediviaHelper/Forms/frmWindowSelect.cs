@@ -32,7 +32,7 @@ namespace MediviaHelper
 
             Process[] processes = this.getMediviaClients();
             
-            if(processes.Length == 0)
+            if(processes == null || processes.Length == 0)
             {
                 return;
             }
@@ -69,6 +69,8 @@ namespace MediviaHelper
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            if (this.lvWindows.SelectedIndices.Count == 0) return;
+
             int idx = this.lvWindows.SelectedIndices[0];
             Client selectedClient = this.clients[idx];
             if (selectedClient != null)
