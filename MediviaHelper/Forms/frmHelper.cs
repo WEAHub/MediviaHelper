@@ -94,6 +94,15 @@ namespace MediviaHelper
                 );
             }
 
+            if (this.notyHungry && this.client.player.hungry)
+            {
+                this.showNotification(
+                    this.client.player.name,
+                    "Has hungry!",
+                    NotificationType.Notification
+                );
+            }
+
         }
 
         private void showNotification(string title, string message, NotificationType type)

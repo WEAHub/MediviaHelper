@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Net;
 
 namespace MediviaHelper.Classes
 {
@@ -22,6 +23,14 @@ namespace MediviaHelper.Classes
         public IntPtr mainWindow { get; set; }
         public Player player { get; set; }
         private readonly Mem MemLib = new Mem();
+        public int PlayerFlags { get { return MemLib.ReadInt(PointersAddr.playerFlags); } }
+
+        public enum Flags : int
+        {
+            Battle = 128,
+            Hungry = 1024,
+            ProtectionZone = 2048,
+        }
 
         public Client(Process process)
         {
@@ -44,6 +53,11 @@ namespace MediviaHelper.Classes
                 return null;
             }
         }
+        public bool CheckFlag(Flags _flag)
+        {
+            uint flag = (uint)_flag;
+            return ((PlayerFlags & flag) == flag);
+        }
 
         public void playerUpdate()
         {
@@ -54,6 +68,7 @@ namespace MediviaHelper.Classes
             this.player.mana = MemLib.ReadDouble(PointersAddr.playerMana);
             this.player.maxMana = MemLib.ReadDouble(PointersAddr.playerMaxMana);
             this.player.online = MemLib.ReadByte(PointersAddr.playerOnline) > 0;
+            this.player.hungry = CheckFlag(Flags.Hungry);
         }
 
         public void FocusWindow()

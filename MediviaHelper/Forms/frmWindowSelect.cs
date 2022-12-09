@@ -44,6 +44,7 @@ namespace MediviaHelper
                 if (!newClient.player.online) continue;
 
                 this.clients.Add(newClient);
+
                 string[] lvRow = {
                     newClient.player.name, 
                     newClient.player.server, 

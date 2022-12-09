@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static MediviaHelper.Classes.Player;
 
 namespace MediviaHelper.Classes
 {
@@ -16,10 +18,11 @@ namespace MediviaHelper.Classes
         public double maxMana { get; set; }
         public bool online { get; set; }
 
+        public bool hungry { get; set; }
+
         public Player()
-        {
+        {  
 
         }
-
     }
 }
