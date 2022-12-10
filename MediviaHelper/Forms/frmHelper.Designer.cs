@@ -39,6 +39,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chkNotFullHP = new System.Windows.Forms.CheckBox();
             this.chkHungry = new System.Windows.Forms.CheckBox();
+            this.chkBattle = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -125,12 +126,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chkBattle);
             this.groupBox2.Controls.Add(this.chkNotFullHP);
             this.groupBox2.Controls.Add(this.chkHungry);
             this.groupBox2.Controls.Add(this.chkFullMana);
             this.groupBox2.Location = new System.Drawing.Point(12, 183);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(217, 107);
+            this.groupBox2.Size = new System.Drawing.Size(217, 85);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Notify";
@@ -149,7 +151,7 @@
             // chkHungry
             // 
             this.chkHungry.AutoSize = true;
-            this.chkHungry.Location = new System.Drawing.Point(18, 77);
+            this.chkHungry.Location = new System.Drawing.Point(125, 54);
             this.chkHungry.Name = "chkHungry";
             this.chkHungry.Size = new System.Drawing.Size(60, 17);
             this.chkHungry.TabIndex = 5;
@@ -157,11 +159,22 @@
             this.chkHungry.UseVisualStyleBackColor = true;
             this.chkHungry.CheckedChanged += new System.EventHandler(this.chkHungry_CheckedChanged);
             // 
+            // chkBattle
+            // 
+            this.chkBattle.AutoSize = true;
+            this.chkBattle.Location = new System.Drawing.Point(125, 31);
+            this.chkBattle.Name = "chkBattle";
+            this.chkBattle.Size = new System.Drawing.Size(53, 17);
+            this.chkBattle.TabIndex = 7;
+            this.chkBattle.Text = "Battle";
+            this.chkBattle.UseVisualStyleBackColor = true;
+            this.chkBattle.CheckedChanged += new System.EventHandler(this.chkBattle_CheckedChanged);
+            // 
             // FrmHelper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(239, 298);
+            this.ClientSize = new System.Drawing.Size(239, 276);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -192,6 +205,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox chkNotFullHP;
         private System.Windows.Forms.CheckBox chkHungry;
+        private System.Windows.Forms.CheckBox chkBattle;
     }
 }
 

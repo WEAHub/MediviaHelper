@@ -69,6 +69,7 @@ namespace MediviaHelper.Classes
             this.player.maxMana = MemLib.ReadDouble(PointersAddr.playerMaxMana);
             this.player.online = MemLib.ReadByte(PointersAddr.playerOnline) > 0;
             this.player.hungry = CheckFlag(Flags.Hungry);
+            this.player.battle = CheckFlag(Flags.Battle);
         }
 
         public void FocusWindow()

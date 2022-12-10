@@ -19,6 +19,7 @@ namespace MediviaHelper.Classes
         public bool online { get; set; }
 
         public bool hungry { get; set; }
+        public bool battle { get; set; }
 
         public Player()
         {  

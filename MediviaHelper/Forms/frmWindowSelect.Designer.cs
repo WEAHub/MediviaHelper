@@ -67,9 +67,11 @@
             // 
             // btnConfirm
             // 
+            this.btnConfirm.Image = global::MediviaHelper.Properties.Resources._16;
+            this.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnConfirm.Location = new System.Drawing.Point(12, 200);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(194, 23);
+            this.btnConfirm.Size = new System.Drawing.Size(114, 23);
             this.btnConfirm.TabIndex = 1;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
@@ -77,11 +79,13 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(212, 200);
+            this.btnRefresh.Image = global::MediviaHelper.Properties.Resources._14;
+            this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefresh.Location = new System.Drawing.Point(132, 200);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(25, 23);
+            this.btnRefresh.Size = new System.Drawing.Size(105, 24);
             this.btnRefresh.TabIndex = 2;
-            this.btnRefresh.Text = "R";
+            this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 

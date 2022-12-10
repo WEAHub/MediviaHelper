@@ -1,17 +1,19 @@
-﻿using System.Diagnostics;
-using System;
-using System.Windows.Forms;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
+﻿using System;
 using Memory;
-using MediviaHelper.Classes;
+using System.Linq;
+using System.Text;
 using System.Timers;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Reflection;
 using Notification.Wpf;
+using System.Diagnostics;
+using System.Windows.Forms;
+using MediviaHelper.Classes;
+using System.Security.Cryptography;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Collections.Generic;
+using System.Windows.Media.Animation;
 
 namespace MediviaHelper
 {
@@ -25,9 +27,10 @@ namespace MediviaHelper
         private bool notyFullMana = false;
         private bool notyNotFullHp = false;
         private bool notyHungry = false;
+        private bool notyBattle = false;
 
-        private NotificationManager notifyMan = new NotificationManager();
-        private NotificationContent lastNotification = null;
+        private readonly NotificationManager notifyMan = new NotificationManager();
+        private List<NotificationContent> notifyList = new List<NotificationContent>();
 
         public FrmHelper(Client _client)
         {
@@ -36,7 +39,8 @@ namespace MediviaHelper
         }
 
         private void FrmHelper_Load(object sender, EventArgs e)
-        {
+        {            
+
             this.lblName.Text = $"Player: {client.player.name}";
             this.lblServer.Text = $"Server: {client.player.server}";
             this.startUpdate();
@@ -85,7 +89,7 @@ namespace MediviaHelper
                 );
             }
 
-            if (this.notyNotFullHp && this.client.player.hp < this.client.player.maxHP)
+            if(this.notyNotFullHp && this.client.player.hp < this.client.player.maxHP)
             {
                 this.showNotification(
                     this.client.player.name, 
@@ -94,7 +98,7 @@ namespace MediviaHelper
                 );
             }
 
-            if (this.notyHungry && this.client.player.hungry)
+            if(this.notyHungry && this.client.player.hungry)
             {
                 this.showNotification(
                     this.client.player.name,
@@ -103,7 +107,29 @@ namespace MediviaHelper
                 );
             }
 
+            if(this.notyBattle && this.client.player.battle)
+            {
+
+                this.showNotification(
+                    this.client.player.name,
+                    "Battle!",
+                    NotificationType.Notification
+                );
+
+            }
+
         }
+
+        private bool notifyExists(NotificationContent content)
+        {
+            return this.notifyFindId(content) != -1;
+        }
+
+        private int notifyFindId(NotificationContent content)
+        {
+            return this.notifyList.FindIndex(noty => noty.Title == content.Title && noty.Message == content.Message);
+        }
+
 
         private void showNotification(string title, string message, NotificationType type)
         {
@@ -115,13 +141,13 @@ namespace MediviaHelper
                 LeftButtonAction = () => this.client.FocusWindow(),
             };
 
-            if (this.lastNotification == null 
-                || (this.lastNotification != null
-                && content.Message != this.lastNotification.Message
-                && content.Title != this.lastNotification.Title))
+            if(!this.notifyExists(content))
             {
-                this.lastNotification = content;
-                notifyMan.Show(content);
+                this.notifyList.Add(content);
+                notifyMan.Show(content, "", null, null, () =>
+                {
+                    this.notifyList.Remove(content);
+                });
             }
         }
 
@@ -144,6 +170,12 @@ namespace MediviaHelper
         private void chkHungry_CheckedChanged(object sender, EventArgs e)
         {
             this.notyHungry = !this.notyHungry;
+        }
+
+        private void chkBattle_CheckedChanged(object sender, EventArgs e)
+        {
+            this.notyBattle = !this.notyBattle;
+
         }
     }
 }
