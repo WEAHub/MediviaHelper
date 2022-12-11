@@ -32,6 +32,7 @@ namespace MediviaHelper
 
         private readonly NotificationManager notifyMan = new NotificationManager();
         private List<NotificationContent> notifyList = new List<NotificationContent>();
+        private System.Media.SoundPlayer alertSound = new System.Media.SoundPlayer(@"alert.wav");
 
         public FrmHelper(Client _client)
         {
@@ -66,15 +67,23 @@ namespace MediviaHelper
             if(!this.client.player.online)
             {
                 this.gbDisconnected.Visible = true;
+                this.tabControl.TabIndex = 1;
+                this.tabControl.Enabled = false;
                 return;
             }
             else
             {
                 if(this.gbDisconnected.Visible)
                 {
+
                     this.gbDisconnected.Visible = false;
+                    this.tabControl.TabIndex = 1;
+                    this.tabControl.Enabled = true;
                 }
             }
+
+            this.lblName.Text = $"Player: {client.player.name}";
+            this.lblServer.Text = $"Server: {client.player.server}";
 
             int hpMax = Convert.ToInt32(this.client.player.maxHP);
             int hp = Convert.ToInt32(this.client.player.hp);
@@ -190,7 +199,8 @@ namespace MediviaHelper
             {
                 this.addLog($"{title} - {message}");
                 this.notifyList.Add(content);
-                notifyMan.Show(content, "", null, null, () =>
+                this.alertSound.Play();
+                notifyMan.Show(content, "", TimeSpan.FromMilliseconds(60000), null, () =>
                 {
                     this.notifyList.Remove(content);
                 });
@@ -224,5 +234,9 @@ namespace MediviaHelper
 
         }
 
+        private void gbDisconnected_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

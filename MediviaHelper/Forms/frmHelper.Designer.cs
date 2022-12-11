@@ -41,6 +41,11 @@
             this.chkHungry = new System.Windows.Forms.CheckBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabMain = new System.Windows.Forms.TabPage();
+            this.gbDisconnected = new System.Windows.Forms.GroupBox();
+            this.lblDisconnected = new System.Windows.Forms.Label();
+            this.lblLvlPercent = new System.Windows.Forms.Label();
+            this.lblLvl = new System.Windows.Forms.Label();
+            this.lblLvlExp = new System.Windows.Forms.Label();
             this.tabNoty = new System.Windows.Forms.TabPage();
             this.tabLog = new System.Windows.Forms.TabPage();
             this.lvLog = new System.Windows.Forms.ListView();
@@ -50,17 +55,12 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.lblLvl = new System.Windows.Forms.Label();
-            this.lblLvlExp = new System.Windows.Forms.Label();
-            this.lblLvlPercent = new System.Windows.Forms.Label();
-            this.gbDisconnected = new System.Windows.Forms.GroupBox();
-            this.lblDisconnected = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabMain.SuspendLayout();
+            this.gbDisconnected.SuspendLayout();
             this.tabNoty.SuspendLayout();
             this.tabLog.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            this.gbDisconnected.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblName
@@ -194,6 +194,57 @@
             this.tabMain.Text = "Home";
             this.tabMain.UseVisualStyleBackColor = true;
             // 
+            // gbDisconnected
+            // 
+            this.gbDisconnected.BackgroundImage = global::MediviaHelper.Properties.Resources.disconnected;
+            this.gbDisconnected.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.gbDisconnected.Controls.Add(this.lblDisconnected);
+            this.gbDisconnected.Cursor = System.Windows.Forms.Cursors.No;
+            this.gbDisconnected.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbDisconnected.Location = new System.Drawing.Point(6, 6);
+            this.gbDisconnected.Name = "gbDisconnected";
+            this.gbDisconnected.Size = new System.Drawing.Size(238, 250);
+            this.gbDisconnected.TabIndex = 9;
+            this.gbDisconnected.TabStop = false;
+            this.gbDisconnected.Visible = false;
+            this.gbDisconnected.Enter += new System.EventHandler(this.gbDisconnected_Enter);
+            // 
+            // lblDisconnected
+            // 
+            this.lblDisconnected.Location = new System.Drawing.Point(27, 44);
+            this.lblDisconnected.Name = "lblDisconnected";
+            this.lblDisconnected.Size = new System.Drawing.Size(185, 28);
+            this.lblDisconnected.TabIndex = 0;
+            this.lblDisconnected.Text = "Player disconnected";
+            this.lblDisconnected.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLvlPercent
+            // 
+            this.lblLvlPercent.AutoSize = true;
+            this.lblLvlPercent.Location = new System.Drawing.Point(15, 104);
+            this.lblLvlPercent.Name = "lblLvlPercent";
+            this.lblLvlPercent.Size = new System.Drawing.Size(47, 13);
+            this.lblLvlPercent.TabIndex = 7;
+            this.lblLvlPercent.Text = "Level %:";
+            // 
+            // lblLvl
+            // 
+            this.lblLvl.AutoSize = true;
+            this.lblLvl.Location = new System.Drawing.Point(15, 78);
+            this.lblLvl.Name = "lblLvl";
+            this.lblLvl.Size = new System.Drawing.Size(36, 13);
+            this.lblLvl.TabIndex = 6;
+            this.lblLvl.Text = "Level:";
+            // 
+            // lblLvlExp
+            // 
+            this.lblLvlExp.AutoSize = true;
+            this.lblLvlExp.Location = new System.Drawing.Point(15, 131);
+            this.lblLvlExp.Name = "lblLvlExp";
+            this.lblLvlExp.Size = new System.Drawing.Size(63, 13);
+            this.lblLvlExp.TabIndex = 5;
+            this.lblLvlExp.Text = "Experience:";
+            // 
             // tabNoty
             // 
             this.tabNoty.Controls.Add(this.chkNotFullHP);
@@ -274,56 +325,6 @@
             this.notifyIcon.Text = "MediviaHelper";
             this.notifyIcon.Visible = true;
             // 
-            // lblLvl
-            // 
-            this.lblLvl.AutoSize = true;
-            this.lblLvl.Location = new System.Drawing.Point(15, 78);
-            this.lblLvl.Name = "lblLvl";
-            this.lblLvl.Size = new System.Drawing.Size(36, 13);
-            this.lblLvl.TabIndex = 6;
-            this.lblLvl.Text = "Level:";
-            // 
-            // lblLvlExp
-            // 
-            this.lblLvlExp.AutoSize = true;
-            this.lblLvlExp.Location = new System.Drawing.Point(15, 131);
-            this.lblLvlExp.Name = "lblLvlExp";
-            this.lblLvlExp.Size = new System.Drawing.Size(63, 13);
-            this.lblLvlExp.TabIndex = 5;
-            this.lblLvlExp.Text = "Experience:";
-            // 
-            // lblLvlPercent
-            // 
-            this.lblLvlPercent.AutoSize = true;
-            this.lblLvlPercent.Location = new System.Drawing.Point(15, 104);
-            this.lblLvlPercent.Name = "lblLvlPercent";
-            this.lblLvlPercent.Size = new System.Drawing.Size(47, 13);
-            this.lblLvlPercent.TabIndex = 7;
-            this.lblLvlPercent.Text = "Level %:";
-            // 
-            // gbDisconnected
-            // 
-            this.gbDisconnected.BackgroundImage = global::MediviaHelper.Properties.Resources.disconnected;
-            this.gbDisconnected.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.gbDisconnected.Controls.Add(this.lblDisconnected);
-            this.gbDisconnected.Cursor = System.Windows.Forms.Cursors.No;
-            this.gbDisconnected.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gbDisconnected.Location = new System.Drawing.Point(6, 6);
-            this.gbDisconnected.Name = "gbDisconnected";
-            this.gbDisconnected.Size = new System.Drawing.Size(238, 250);
-            this.gbDisconnected.TabIndex = 9;
-            this.gbDisconnected.TabStop = false;
-            this.gbDisconnected.Visible = false;
-            // 
-            // lblDisconnected
-            // 
-            this.lblDisconnected.Location = new System.Drawing.Point(27, 44);
-            this.lblDisconnected.Name = "lblDisconnected";
-            this.lblDisconnected.Size = new System.Drawing.Size(185, 28);
-            this.lblDisconnected.TabIndex = 0;
-            this.lblDisconnected.Text = "Player disconnected";
-            this.lblDisconnected.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FrmHelper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,12 +343,12 @@
             this.tabControl.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
             this.tabMain.PerformLayout();
+            this.gbDisconnected.ResumeLayout(false);
             this.tabNoty.ResumeLayout(false);
             this.tabNoty.PerformLayout();
             this.tabLog.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.gbDisconnected.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

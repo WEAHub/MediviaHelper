@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Net;
+using System.Text.RegularExpressions;
 
 namespace MediviaHelper.Classes
 {
@@ -53,15 +54,28 @@ namespace MediviaHelper.Classes
                 return null;
             }
         }
-        public bool CheckFlag(Flags _flag)
+        private bool CheckFlag(Flags _flag)
         {
             uint flag = (uint)_flag;
             return ((PlayerFlags & flag) == flag);
         }
 
+        private string readName()
+        {
+            string name = MemLib.ReadString(PointersAddr.playerName);
+            
+            if (Regex.IsMatch(name, "^[A-Za-z\\s]*$"))
+            {
+                return name;
+            }
+
+            return MemLib.ReadString($"{PointersAddr.playerName}, 0x00");
+
+        }
+
         public void playerUpdate()
         {
-            this.player.name = MemLib.ReadString(PointersAddr.playerName); ;
+            this.player.name = readName();
             this.player.server = MemLib.ReadString(PointersAddr.playerServer);
             this.player.hp = MemLib.ReadDouble(PointersAddr.playerHP);
             this.player.maxHP = MemLib.ReadDouble(PointersAddr.playerMaxHP);
