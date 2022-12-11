@@ -46,7 +46,7 @@
             this.lvWindows.HideSelection = false;
             this.lvWindows.Location = new System.Drawing.Point(12, 12);
             this.lvWindows.Name = "lvWindows";
-            this.lvWindows.Size = new System.Drawing.Size(225, 182);
+            this.lvWindows.Size = new System.Drawing.Size(225, 159);
             this.lvWindows.TabIndex = 0;
             this.lvWindows.UseCompatibleStateImageBehavior = false;
             this.lvWindows.View = System.Windows.Forms.View.Details;
@@ -69,7 +69,7 @@
             // 
             this.btnConfirm.Image = global::MediviaHelper.Properties.Resources._16;
             this.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirm.Location = new System.Drawing.Point(12, 200);
+            this.btnConfirm.Location = new System.Drawing.Point(12, 177);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(114, 23);
             this.btnConfirm.TabIndex = 1;
@@ -81,7 +81,7 @@
             // 
             this.btnRefresh.Image = global::MediviaHelper.Properties.Resources._14;
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(132, 200);
+            this.btnRefresh.Location = new System.Drawing.Point(132, 177);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(105, 24);
             this.btnRefresh.TabIndex = 2;
@@ -93,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(251, 229);
+            this.ClientSize = new System.Drawing.Size(251, 209);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.lvWindows);
@@ -101,6 +101,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmWindowSelect";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select Medivia";
             this.Load += new System.EventHandler(this.frmWindowSelect_Load);
             this.ResumeLayout(false);

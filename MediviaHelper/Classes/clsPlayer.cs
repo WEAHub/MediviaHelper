@@ -17,6 +17,9 @@ namespace MediviaHelper.Classes
         public double mana { get; set; }
         public double maxMana { get; set; }
         public bool online { get; set; }
+        public double level { get; set; }
+        public double levelPercent { get; set; }
+        public double levelExp { get; set; }
 
         public bool hungry { get; set; }
         public bool battle { get; set; }

@@ -21,6 +21,10 @@ namespace MediviaHelper
 
         public static string playerFlags = $"{localEntityAddr},0x280,0x528";
 
+        public static string playerLevel= $"{localEntityAddr},0x280,0x558";
+        public static string playerLevelPercent = $"{localEntityAddr},0x280,0x560";
+        public static string playerLevelExp = $"{localEntityAddr},0x280,0x550";
+
 
     }
 }

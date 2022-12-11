@@ -68,6 +68,10 @@ namespace MediviaHelper.Classes
             this.player.mana = MemLib.ReadDouble(PointersAddr.playerMana);
             this.player.maxMana = MemLib.ReadDouble(PointersAddr.playerMaxMana);
             this.player.online = MemLib.ReadByte(PointersAddr.playerOnline) > 0;
+            this.player.level = MemLib.ReadDouble(PointersAddr.playerLevel);
+            this.player.levelExp = MemLib.ReadDouble(PointersAddr.playerLevelExp);
+            this.player.levelPercent = MemLib.ReadDouble(PointersAddr.playerLevelPercent);
+         
             this.player.hungry = CheckFlag(Flags.Hungry);
             this.player.battle = CheckFlag(Flags.Battle);
         }

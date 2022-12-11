@@ -41,13 +41,15 @@ namespace MediviaHelper
             {
                 var newClient = new Client(client);
 
-                if (!newClient.player.online) continue;
+
+                string name = newClient.player.online ? newClient.player.name : "Disconnected";
+                string server = newClient.player.online ? newClient.player.server : "-";
 
                 this.clients.Add(newClient);
 
                 string[] lvRow = {
-                    newClient.player.name, 
-                    newClient.player.server, 
+                    name,
+                    server, 
                     newClient.processID.ToString() 
                 };
 
